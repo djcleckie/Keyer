@@ -1,5 +1,5 @@
 /*
-
+//file K3NG.ino
  K3NG Arduino CW Keyer
 
  Copyright 2011 - 2021 Anthony Good, K3NG
@@ -1515,7 +1515,7 @@ If you offer a hardware kit using this software, show your appreciation by sendi
 
 #include "keyer_dependencies.h"
 #include "keyer_debug.h"
-
+//
 #if defined(HARDWARE_OPENCWKEYER_MK2)
   #include "keyer_pin_settings_opencwkeyer_mk2.h"
   #include "keyer_settings_opencwkeyer_mk2.h"

@@ -1,7 +1,8 @@
 // compile time features and options - comment or uncomment to add or delete features
 // FEATURES add more bytes to the compiled binary, OPTIONS change code behavior
-
-
+//file keyer_features_and_options_k5bcq.h
+//down at line 26 #define FEATURE_LCD_4BIT
+//down at line 29 // #define FEATURE_LCD_ADAFRUIT_I2C is commented out
 #define FEATURE_BUTTONS
 #define FEATURE_COMMAND_MODE
 #define FEATURE_COMMAND_LINE_INTERFACE  // Command Line Interface functionality
