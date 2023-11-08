@@ -1,0 +1,75 @@
+Opening file is.
+
+file K3NG.ino
+
+Next there is the 
+
+keyer_hardware.h
+
+This lists all the possible hardware types but all are initially commented out.
+
+e.g.
+// #define HARDWARE_NANOKEYER_REV_D 
+or 
+// #define HARDWARE_K5BCQ
+
+For a specific hardware setup ONLY one of these should be uncommented. 
+
+if one of these is un-commented then it gets #included by the big #if in the K3NG.ino file and the #else is never reached.
+there are (at least 2 x #if)
+
+has a long list of various hardware configurations
+starting with 
+
+#if defined(HARDWARE_OPENCWKEYER_MK2)
+  #include "keyer_pin_settings_opencwkeyer_mk2.h"
+  #include "keyer_settings_opencwkeyer_mk2.h"
+
+#elif defined(HARDWARE_NANOKEYER_REV_D)
+  #include "keyer_pin_settings_nanokeyer_rev_d.h"
+  #include "keyer_settings_nanokeyer_rev_d.h"
+
+#elif defined(HARDWARE_K5BCQ)
+  #include "keyer_pin_settings_k5bcq.h"
+  #include "keyer_settings_k5bcq.h"
+
+Default if none are defined is at the end of the #if
+
+#else
+  #include "keyer_pin_settings.h"
+  #include "keyer_settings.h"
+#endif
+
+
+Then there is another big #if statement which #includes the specific keyer_features_and_options
+e.g.
+#elif defined(HARDWARE_NANOKEYER_REV_D)
+  #include "keyer_features_and_options_nanokeyer_rev_d.h"
+or
+#elif defined(HARDWARE_K5BCQ)
+  #include "keyer_features_and_options_k5bcq.h"
+
+//file keyer_features_and_options_k5bcq.h
+//down at line 26 #define FEATURE_LCD_4BIT
+//down at line 29 // #define FEATURE_LCD_ADAFRUIT_I2C is commented out
+
+but 
+keyer_features_and_options_nanokeyer_rev_d.h
+has all LCD options commented out.
+
+
+File types
+
+K3NG.ino
+keyer.h 
+keyer_callsign_prefixes.h
+keyer_debug.h
+keyer_dependencies.h
+keyer_features_and_options.h  (multiple versions for individual hardware)
+keyer_hardware.h
+keyer_pin_settings.h (multiple versions for individual hardware)
+keyer_settings.h (multiple versions for individual hardware)
+keyer_stm32duino.h
+keyer_training_text_english.h (other language versions)
+ 
+
