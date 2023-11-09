@@ -17,7 +17,7 @@ ButtonArray button_array(ARRAY_PIN, NB_BUTTONS, false);
 ButtonArray encoder(ENCODER_PIN, 1, false);
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   delay(1000); 
   button_array.AddAll();
   encoder.AddAll();

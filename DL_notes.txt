@@ -71,5 +71,24 @@ keyer_pin_settings.h (multiple versions for individual hardware)
 keyer_settings.h (multiple versions for individual hardware)
 keyer_stm32duino.h
 keyer_training_text_english.h (other language versions)
+
+
+
+my default setup
+
+keyer_hardware.h
+all additional harware commented out.
+
+Therefore it will use
+
+keyer_features_and_options.h
+
+in above the lines below are uncommented 
+
+#define FEATURE_BUTTONS
+#define FEATURE_COMMAND_MODE
+#define FEATURE_COMMAND_LINE_INTERFACE // Command Line Interface functionality
+#define FEATURE_SERIAL_HELP
+
  
 

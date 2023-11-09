@@ -2368,7 +2368,7 @@ byte async_eeprom_write = 0;
 void setup()
 {
 
-
+//Serial.begin(9600);
 
   #if defined(FEATURE_DUAL_MODE_KEYER_AND_TINYFSK)
   check_run_tinyfsk_pin();
