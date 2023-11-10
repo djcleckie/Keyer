@@ -90,5 +90,13 @@ in above the lines below are uncommented
 #define FEATURE_COMMAND_LINE_INTERFACE // Command Line Interface functionality
 #define FEATURE_SERIAL_HELP
 
+Boots up OK gives message 
+
+K3NG Keyer Version 2023.10.28.2304
+
+
+Enter \? for help
+
+but \? does not work.
  
 
