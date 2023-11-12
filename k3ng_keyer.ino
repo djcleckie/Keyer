@@ -1435,7 +1435,7 @@ If you offer a hardware kit using this software, show your appreciation by sendi
 
 #include <stdio.h>
 #include "keyer_hardware.h"
-
+#define DL_DEBUG
 #if defined(ARDUINO_SAM_DUE)
   #include <SPI.h>
   #include <Wire.h>
@@ -1586,6 +1586,7 @@ If you offer a hardware kit using this software, show your appreciation by sendi
 #else
   #include "keyer_pin_settings.h"
   #include "keyer_settings.h"
+ 
 #endif
 
 #if (paddle_left == 0) || (paddle_right == 0)
@@ -2368,9 +2369,9 @@ byte async_eeprom_write = 0;
 
 void setup()
 {
-
-//Serial.begin(9600);
-
+#if defined(DL_DEBUG)
+  Serial.begin(115200);
+#endif
   #if defined(FEATURE_DUAL_MODE_KEYER_AND_TINYFSK)
   check_run_tinyfsk_pin();
   if (runTinyFSK){

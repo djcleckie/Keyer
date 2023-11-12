@@ -37,7 +37,7 @@ Default if none are defined is at the end of the #if
 
 #else
   #include "keyer_pin_settings.h"
-  #include "keyer_settings.h"
+  #include "keyer_settings.h" about line 1588
 #endif
 
 
@@ -92,6 +92,48 @@ in above the lines below are uncommented
 
 Boots up OK gives message 
 
+keyer_features_and_options.h this is a working set.
+
+#define FEATURE_BUTTONS
+#define FEATURE_COMMAND_MODE
+#define FEATURE_COMMAND_LINE_INTERFACE 
+#define FEATURE_SERIAL_HELP
+#define OPTION_PRIMARY_SERIAL_PORT_DEFAULT_WINKEY_EMULATION  
+#define OPTION_INCLUDE_PTT_TAIL_FOR_MANUAL_SENDING
+#define OPTION_EXCLUDE_PTT_HANG_TIME_FOR_MANUAL_SENDING
+#define OPTION_WINKEY_STRICT_HOST_OPEN 
+// require an admin host open Winkey command before doing any other commands
+#define OPTION_WINKEY_2_SUPPORT // comment out to revert to Winkey version 1 emulation
+#define OPTION_WINKEY_SEND_BREAKIN_STATUS_BYTE
+#define OPTION_WINKEY_INTERRUPTS_MEMORY_REPEAT
+#define OPTION_WINKEY_2_HOST_CLOSE_NO_SERIAL_PORT_RESET
+#define OPTION_WINKEY_IGNORE_LOWERCASE
+#define OPTION_PROG_MEM_TRIM_TRAILING_SPACES // trim trailing spaces from memory when programming in command mode
+#define OPTION_DIT_PADDLE_NO_SEND_ON_MEM_RPT  
+#define OPTION_CW_KEYBOARD_CAPSLOCK_BEEP
+#define OPTION_DO_NOT_SEND_UNKNOWN_CHAR_QUESTION
+#define OPTION_EXCLUDE_EXTENDED_CLI_COMMANDS
+
+
+
+Generic 2004 I2C Displays use HD44780 controller
+
+
+#if defined(FEATURE_LCD_HD44780)
+  #include <Wire.h>
+  #include <hd44780.h>
+  #include <hd44780ioClass/hd44780_I2Cexp.h>
+  #define WIRECLOCK 400000L
+#endif
+
+Disable ASR
+
+https://www.youtube.com/watch?v=vOGoQWscv-c
+
+#define FEATURE_WINKEY_EMULATION this seems to be the problem.
+
+// disabling Automatic Software Reset is highly recommended (see documentation)
+
 K3NG Keyer Version 2023.10.28.2304
 
 
@@ -99,4 +141,66 @@ Enter \? for help
 
 but \? does not work.
  
+keyer_settings_k5bcq.h
+line 155
+#define PRIMARY_SERIAL_PORT_BAUD 115200     // This applies only when the port is in Command Line Interface mode.  In Winkey mode it will default to 1200.
+
+keyer_settings.h about line 153 #define PRIMARY_SERIAL_PORT_BAUD 115200  
+
+
+Update 12/11/2023
+
+keyer_features_and_options_k5bcq.h
+
+This does not work.
+Issue seems to be #define FEATURE_WINKEY_EMULATION 
+
+In keyer_hardware.h uncomment the line below
+
+// #define HARDWARE_K5BCQ
+
+And \? and \s stop working.
+
+But in keyer_features_and_options_k5bcq.h
+comment out // #define FEATURE_WINKEY_EMULATION and \S and \? work again.
+
+
+#define FEATURE_BUTTONS
+#define FEATURE_COMMAND_MODE
+#define FEATURE_COMMAND_LINE_INTERFACE  // Command Line Interface functionality
+#define FEATURE_MEMORIES             // on the Arduino Due, you must have FEATURE_EEPROM_E24C1024 and E24C1024 EEPROM hardware in order to compile this
+#define FEATURE_MEMORY_MACROS
+#define FEATURE_WINKEY_EMULATION    // disabling Automatic Software Reset is highly recommended (see documentation)
+#define FEATURE_BEACON                // Go into beacon mode if paddle_left pin is LOW at boot up
+#define FEATURE_BEACON_SETTING  
+#define FEATURE_SERIAL_HELP
+#define OPTION_PRIMARY_SERIAL_PORT_DEFAULT_WINKEY_EMULATION
+#define OPTION_INCLUDE_PTT_TAIL_FOR_MANUAL_SENDING
+#define OPTION_EXCLUDE_PTT_HANG_TIME_FOR_MANUAL_SENDING
+#define OPTION_WINKEY_STRICT_HOST_OPEN               // require an admin host open Winkey command before doing any other commands
+#define OPTION_WINKEY_2_SUPPORT                      // comment out to revert to Winkey version 1 emulation
+#define OPTION_WINKEY_SEND_BREAKIN_STATUS_BYTE
+#define OPTION_WINKEY_INTERRUPTS_MEMORY_REPEAT
+#define OPTION_WINKEY_2_HOST_CLOSE_NO_SERIAL_PORT_RESET
+#define OPTION_WINKEY_IGNORE_LOWERCASE 
+#define OPTION_PROG_MEM_TRIM_TRAILING_SPACES         // trim trailing spaces from memory when programming in command mode
+#define OPTION_DIT_PADDLE_NO_SEND_ON_MEM_RPT         // this makes dit paddle memory interruption a little smoother
+#define OPTION_MORE_DISPLAY_MSGS       
+#define OPTION_CW_KEYBOARD_CAPSLOCK_BEEP
+#define OPTION_CW_DECODER_GOERTZEL_AUDIO_DETECTOR
+#define OPTION_ADVANCED_SPEED_DISPLAY //
+#define OPTION_PROSIGN_SUPPORT
+#define OPTION_DO_NOT_SEND_UNKNOWN_CHAR_QUESTION
+#define OPTION_SIDETONE_DIGITAL_OUTPUT_NO_SQUARE_WAVE
+#define OPTION_EXCLUDE_EXTENDED_CLI_COMMANDS
+
+
+If I need to have a CR in the Line ending box.
+I had LF and it gave an error with E123 etc.
+CR works
+LF and CR works
+but
+LF gives an error.
+
+As you found out \E000 gives an error lowest can be 0001
 
