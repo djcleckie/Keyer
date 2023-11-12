@@ -10,7 +10,7 @@
 */
 
 // #define HARDWARE_NANOKEYER_REV_B   // https://nanokeyer.wordpress.com/nanokeyer-info/  edit these files: keyer_pin_settings_nanokeyer_rev_b.h, keyer_features_and_options_nanokeyer_rev_b.h, keyer_settings_nanokeyer_rev_b.h
-#define HARDWARE_NANOKEYER_REV_D   // https://nanokeyer.wordpress.com/nanokeyer-info/  edit these files: keyer_pin_settings_nanokeyer_rev_d.h, keyer_features_and_options_nanokeyer_rev_d.h, keyer_settings_nanokeyer_rev_d.h  
+//#define HARDWARE_NANOKEYER_REV_D   // https://nanokeyer.wordpress.com/nanokeyer-info/  edit these files: keyer_pin_settings_nanokeyer_rev_d.h, keyer_features_and_options_nanokeyer_rev_d.h, keyer_settings_nanokeyer_rev_d.h  
 // #define HARDWARE_OPEN_INTERFACE   // http://remoteqth.com/open-interface.php   edit these files: keyer_pin_settings_open_interface.h, keyer_features_and_options_open_interface.h, keyer_settings_open_interface.h   
 // #define HARDWARE_TINYKEYER   // http://www.ok1rr.com/index.php/technical-topics/122-the-tinykeyer   edit these files: keyer_pin_settings_tinykeyer.h, keyer_features_and_options_tinykeyer.h, keyer_settings_tinykeyer.h
 // #define HARDWARE_FK_10  // Funtronics K3NG Keyer FK-10  - See notes below!!!  http://www.elekitsorparts.com/product/funtronics-k3ng-keyer-fk-10-99-winkey-emulation/   files: keyer_pin_settings_fk_10.h, keyer_features_and_options_fk_10.h, keyer_settings_fk_10.h
@@ -24,7 +24,7 @@
 // #define HARDWARE_MORTTY_PICO_OVER_USB   // edit these files: keyer_pin_settings_mortty_pico_over_usb.h, keyer_settings_mortty_mortty_pico_over_usb.h, keyer_features_and_options_mortty_mortty_pico_over_usb.h
 // #define HARDWARE_MORTTY_SO2R_WITH_POTENTIOMETER  // edit these files: keyer_pin_settings_mortty_so2r_with_potentiometer.h, keyer_settings_mortty_so2r_with_potentiometer.h, keyer_features_and_options_mortty_so2r_with_potentiometer.h
 // #define HARDWARE_YAACWK   // http://i1cra.briata.org/yaacwk/  files: keyer_pin_settings_yaacwk.h, keyer_features_and_options_yaacwk.h, keyer_settings_yaacwk.h
-// #define HARDWARE_K5BCQ   // edit these files: keyer_pin_settings_k5bcq.h, keyer_features_and_options_k5bcq.h, keyer_settings_k5bcq.h 
+ #define HARDWARE_K5BCQ   // edit these files: keyer_pin_settings_k5bcq.h, keyer_features_and_options_k5bcq.h, keyer_settings_k5bcq.h 
 // #define HARDWARE_MEGAKEYER // https://github.com/w6ipa/megakeyer
 // #define HARDWARE_OPENCWKEYER_MK2 // https://github.com/ok1cdj/OpenCWKeyerMK2  edit these files: keyer_features_and_options_opencwkeyer_mk2.h keyer_pin_settings_opencwkeyer_mk2.h keyer_settings_opencwkeyer_mk2.h
 // #define HARDWARE_IZ3GME // https://github.com/iz3gme/k3ng_cw_keyer  edit these files: keyer_features_and_options_iz3gme.h keyer_pin_settings_iz3gme.h keyer_settings.h
